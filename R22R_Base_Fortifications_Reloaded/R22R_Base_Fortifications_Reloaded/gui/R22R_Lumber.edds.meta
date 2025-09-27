@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{CE09BD84864CF4B8}R22R_Base_Fortifications_Reloaded/gui/R22R_Lumber.edds"
+ Author "desktop-1g5bnsd"
+ ChangeDate -1216581076
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "R22R_Lumber.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

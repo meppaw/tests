@@ -1,0 +1,42 @@
+class ActionOpenPalisadeGate: ActionInteractBase
+{
+	void ActionOpenPalisadeGate()
+	{
+		m_CommandUID = DayZPlayerConstants.CMD_ACTIONMOD_OPENDOORFW;
+		m_StanceMask = DayZPlayerConstants.STANCEMASK_CROUCH | DayZPlayerConstants.STANCEMASK_ERECT;
+		m_HUDCursorIcon = CursorIcons.OpenDoors;
+	}
+
+	override void CreateConditionComponents()  
+	{
+		m_ConditionItem = new CCINone;
+		m_ConditionTarget = new CCTNone;
+	}
+
+	override string GetText()
+	{
+		return "Open";
+	}
+
+	override bool ActionCondition( PlayerBase player, ActionTarget target, ItemBase item )
+	{
+		Object targetObject = target.GetObject();
+		if ( targetObject && targetObject.CanUseConstruction() )
+		{
+			R22R_Wooden_Palisade_Gate_Base gate = R22R_Wooden_Palisade_Gate_Base.Cast( targetObject );
+			string selection = gate.GetActionComponentName(target.GetComponentIndex());
+			
+			if ( gate && gate.CanOpenGate() && ( selection == "left_door_interact" || selection == "right_door_interact" || selection == "door_interact" || selection == "att_combinationlock") )
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	override void OnStartServer( ActionData action_data )
+	{
+		R22R_Wooden_Palisade_Gate_Base gate = R22R_Wooden_Palisade_Gate_Base.Cast( action_data.m_Target.GetObject() );
+		gate.OpenGate();
+	}
+}

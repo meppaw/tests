@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<modded_inputs>
+
+    <!-- declarations -->
+    <inputs>
+    <sorting name="R22R" loc="R22R">
+			<input name="HologramUP"/>
+            <input name="HologramDown"/>
+		</sorting>
+
+        <actions>
+            <input name="HologramUP" loc="Hologram UP" />
+            <input name="HologramDown" loc="Hologram DOWN" />
+        </actions>
+
+    </inputs>
+
+    <!-- preset -->
+    <preset>
+
+        <input name="HologramUP">
+            <btn name="kG">
+                <event name="hold" />
+            </btn>
+        </input>
+
+        <input name="HologramDown">
+            <btn name="kB">
+                <event name="hold" />
+            </btn>
+        </input>
+        
+    </preset>
+
+</modded_inputs>
